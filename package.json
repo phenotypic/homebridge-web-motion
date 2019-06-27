@@ -14,6 +14,9 @@
     "type": "git",
     "url": "git+https://github.com/Tommrodrigues/homebridge-web-motion.git"
   },
+  "dependencies": {
+    "ip": "^1.1.5"
+  },
   "keywords": [
     "homebridge-plugin"
   ],
