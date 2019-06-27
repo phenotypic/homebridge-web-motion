@@ -80,10 +80,10 @@ WebMotion.prototype = {
   },
 
   autoResetFunction: function () {
-    this.log('Waiting %s seconds to autoreset', this.autoResetDelay)
+    this.log('Waiting %s seconds to autoreset motion detection', this.autoResetDelay)
     setTimeout(() => {
       this.service.getCharacteristic(Characteristic.MotionDetected).updateValue(0)
-      this.log('Autoreset')
+      this.log('Autoreset motion detection')
     }, this.autoResetDelay * 1000)
   },
 
