@@ -23,19 +23,7 @@ function WebMotion (log, config) {
   this.model = config.model || packageJson.name
   this.firmware = config.firmware || packageJson.version
 
-  this.username = config.username || null
-  this.password = config.password || null
-  this.timeout = config.timeout || 3000
-  this.http_method = config.http_method || 'GET'
-
   this.requestArray = ['motionDetected']
-
-  if (this.username != null && this.password != null) {
-    this.auth = {
-      user: this.username,
-      pass: this.password
-    }
-  }
 
   this.server = http.createServer(function (request, response) {
     var parts = request.url.split('/')
