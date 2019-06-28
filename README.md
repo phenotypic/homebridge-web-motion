@@ -17,7 +17,7 @@ This [homebridge](https://github.com/nfarina/homebridge) plugin exposes a web-ba
 ```json
 "platforms": [
     {
-       "platform": "WebMotion"
+       "platform": "WebMotion",
        "sensors": [
             {
                "name": "Hallway Sensor",
