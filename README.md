@@ -4,7 +4,7 @@
 
 ## Description
 
-This [homebridge](https://github.com/nfarina/homebridge) plugin exposes a web-based motion sensor to Apple's [HomeKit](http://www.apple.com/ios/home/). Using HTTP requests, you can update the plugin with real-time sensor information. The plugin achieves this by setting up a listen server which listens for changes in state from your device and then feeds them real-time into HomeKit.
+This [homebridge](https://github.com/nfarina/homebridge) plugin exposes web-based motion sensors to Apple's [HomeKit](http://www.apple.com/ios/home/). Using HTTP requests, you can update the plugin with real-time sensor information. The plugin achieves this by setting up a listen server which listens for changes in state from your devices and then feeds them real-time into HomeKit.
 
 ## Installation
 
@@ -15,21 +15,18 @@ This [homebridge](https://github.com/nfarina/homebridge) plugin exposes a web-ba
 ## Configuration
 
 ```json
-"platforms": [
+"platforms": [{
+  "platform": "WebMotion",
+  "sensors": [{
+      "name": "Hallway Sensor",
+      "id": "hall"
+    },
     {
-       "platform": "WebMotion",
-       "sensors": [
-            {
-               "name": "Hallway Sensor",
-               "id": "hall"
-            },
-            {
-               "name": "Bedroom Sensor",
-               "id": "bed"
-            }
-        ]
-     }
-]
+      "name": "Bedroom Sensor",
+      "id": "bed"
+    }
+  ]
+}]
 ```
 
 ### Core
@@ -49,6 +46,10 @@ This [homebridge](https://github.com/nfarina/homebridge) plugin exposes a web-ba
 | Key | Description | Default |
 | --- | --- | --- |
 | `port` _(optional)_ | Port for your HTTP listener (only one listener per port) | `2000` |
+| `model` _(optional)_ | Appears under the _Model_ field for the accessory | plugin |
+| `serial` _(optional)_ | Appears under the _Serial_ field for the accessory | id |
+| `manufacturer` _(optional)_ | Appears under the _Manufacturer_ field for the accessory | author |
+| `firmware` _(optional)_ | Appears under the _Firmware_ field for the accessory | version |
 
 ## API Interfacing
 
