@@ -13,14 +13,14 @@ function WebMotion (log, config) {
   this.log = log
 
   this.port = config.port || 2000
+  this.requestArray = ['motionDetected']
+
   this.autoReset = config.autoReset || false
   this.autoResetDelay = config.autoResetDelay || 5
 
   this.sensors = config.sensors
   this.sensorAccessories = []
   this.idArray = []
-
-  this.requestArray = ['motionDetected']
 
   this.server = http.createServer(function (request, response) {
     var parts = request.url.split('/')
