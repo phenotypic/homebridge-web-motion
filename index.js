@@ -46,9 +46,8 @@ WebMotion.prototype = {
 
   accessories: function (callback) {
     var foundAccessories = []
-    var index
     var count = this.sensors.length
-    for (index = 0; index < count; index++) {
+    for (var index = 0; index < count; index++) {
       var accessory = new MotionAccessory(this.sensors[index])
       this.sensorAccessories[accessory.id] = accessory
       this.idArray.push(accessory.id)
