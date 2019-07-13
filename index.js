@@ -59,8 +59,8 @@ WebMotion.prototype = {
   _httpHandler: function (id, characteristic, value) {
     switch (characteristic) {
       case 'motionDetected':
-        this.log('%s | Updating %s to: %s', id, characteristic, value)
         this.sensorAccessories[id].setState(value)
+        this.log('%s | Updated %s to: %s', id, characteristic, value)
         if (parseInt(value) === 1 && this.autoReset) {
           this.autoResetFunction(id)
         }
