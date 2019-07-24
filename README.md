@@ -39,17 +39,17 @@ This [homebridge](https://github.com/nfarina/homebridge) plugin exposes web-base
 ### Optional fields
 | Key | Description | Default |
 | --- | --- | --- |
-| `autoReset` _(optional)_ | Whether the sensor should automatically change the state back to `0` after being triggered | `false` |
-| `autoResetDelay` _(optional)_ | Time (in seconds) until the sensor will automatically reset (if enabled) | `5` |
+| `autoReset` | Whether the sensor should automatically change the state back to `0` after being triggered | `false` |
+| `autoResetDelay` | Time (in seconds) until the sensor will automatically reset (if enabled) | `5` |
 
 ### Additional options
 | Key | Description | Default |
 | --- | --- | --- |
-| `port` _(optional)_ | Port for your HTTP listener (only one listener per port) | `2000` |
-| `model` _(optional)_ | Appears under the _Model_ field for the accessory | plugin |
-| `serial` _(optional)_ | Appears under the _Serial_ field for the accessory | id |
-| `manufacturer` _(optional)_ | Appears under the _Manufacturer_ field for the accessory | author |
-| `firmware` _(optional)_ | Appears under the _Firmware_ field for the accessory | version |
+| `port` | Port for your HTTP listener (only one listener per port) | `2000` |
+| `model` | Appears under the _Model_ field for the accessory | plugin |
+| `serial` | Appears under the _Serial_ field for the accessory | id |
+| `manufacturer` | Appears under the _Manufacturer_ field for the accessory | author |
+| `firmware` | Appears under the _Firmware_ field for the accessory | version |
 
 ## API Interfacing
 
