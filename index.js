@@ -23,14 +23,12 @@ function WebMotion (log, config) {
   this.idArray = []
 
   this.server = http.createServer(function (request, response) {
-    var parts = request.url.split('/')
-    var partOne = parts[parts.length - 3]
-    var partTwo = parts[parts.length - 2]
-    var partThree = parts[parts.length - 1]
-    if (parts.length === 4 && this.idArray.includes(partOne) && this.requestArray.includes(partTwo) && partThree.length === 1) {
-      this.log('Handling request: %s', request.url)
+    var baseURL = 'http://' + request.headers.host + '/'
+    var url = new URL(request.url, baseURL)
+    if (this.requestArray.includes(url.pathname.substr(1))) {
+      this.log.debug('Handling request')
       response.end('Handling request')
-      this._httpHandler(partOne, partTwo, partThree)
+      this._httpHandler(url.searchParams.get('id'), url.pathname.substr(1), url.searchParams.get('value'))
     } else {
       this.log.warn('Invalid request: %s', request.url)
       response.end('Invalid request')
