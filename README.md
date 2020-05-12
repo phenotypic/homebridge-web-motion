@@ -65,7 +65,7 @@ Your API should be able to:
 
 1. Update `motionDetected` when motion is detected by messaging the listen server (should notify `0` after motion finishes unless `autoReset` is enabled):
 ```
-/ID/motionDetected/INT_VALUE_0_TO_1
+/motionDetected?id=ID&value=INT_VALUE_0_TO_1
 ```
 
 ## MotionDetected Key
