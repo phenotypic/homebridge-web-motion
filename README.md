@@ -12,11 +12,11 @@
 
 ## Description
 
-This [homebridge](https://github.com/nfarina/homebridge) plugin exposes web-based motion sensors to Apple's [HomeKit](http://www.apple.com/ios/home/). Using HTTP requests, you can update the plugin with real-time sensor information. The plugin achieves this by setting up a listen server which listens for changes in state from your devices and then feeds them real-time into HomeKit.
+This [homebridge](https://github.com/homebridge/homebridge) plugin exposes web-based motion sensors to Apple's [HomeKit](http://www.apple.com/ios/home/). Using HTTP requests, you can update the plugin with real-time sensor information. The plugin achieves this by setting up a listen server which listens for changes in state from your devices and then feeds them real-time into HomeKit.
 
 ## Installation
 
-1. Install [homebridge](https://github.com/nfarina/homebridge#installation-details)
+1. Install [homebridge](https://github.com/homebridge/homebridge#installation)
 2. Install this plugin: `npm install -g homebridge-web-motion`
 3. Update your `config.json`
 
