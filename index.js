@@ -82,7 +82,7 @@ function MotionAccessory (config) {
   this.name = config.name
   this.id = config.id
 
-  this.manufacturer = config.manufacturer || packageJson.author.name
+  this.manufacturer = config.manufacturer || packageJson.author
   this.serial = config.serial || config.id
   this.model = config.model || packageJson.name
   this.firmware = config.firmware || packageJson.version
