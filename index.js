@@ -26,9 +26,13 @@ function WebMotion (log, config) {
     var baseURL = 'http://' + request.headers.host + '/'
     var url = new URL(request.url, baseURL)
     if (this.requestArray.includes(url.pathname.substr(1))) {
-      this.log.debug('Handling request')
-      response.end('Handling request')
-      this._httpHandler(url.searchParams.get('id'), url.pathname.substr(1), url.searchParams.get('value'))
+      try {
+        this.log.debug('Handling request')
+        response.end('Handling request')
+        this._httpHandler(url.searchParams.get('id'), url.pathname.substr(1), url.searchParams.get('value'))
+        } catch (e) {
+          this.log.warn('Error parsing request: %s', e.message)
+        }
     } else {
       this.log.warn('Invalid request: %s', request.url)
       response.end('Invalid request')
