@@ -1,4 +1,4 @@
-var Service, Characteristic
+let Service, Characteristic
 const packageJson = require('./package.json')
 const ip = require('ip')
 const http = require('http')
@@ -23,16 +23,16 @@ function WebMotion (log, config) {
   this.idArray = []
 
   this.server = http.createServer(function (request, response) {
-    var baseURL = 'http://' + request.headers.host + '/'
-    var url = new URL(request.url, baseURL)
+    const baseURL = 'http://' + request.headers.host + '/'
+    const url = new URL(request.url, baseURL)
     if (this.requestArray.includes(url.pathname.substr(1))) {
       try {
         this.log.debug('Handling request')
         response.end('Handling request')
         this._httpHandler(url.searchParams.get('id'), url.pathname.substr(1), url.searchParams.get('value'))
-        } catch (e) {
-          this.log.warn('Error parsing request: %s', e.message)
-        }
+      } catch (e) {
+        this.log.warn('Error parsing request: %s', e.message)
+      }
     } else {
       this.log.warn('Invalid request: %s', request.url)
       response.end('Invalid request')
@@ -47,10 +47,10 @@ function WebMotion (log, config) {
 WebMotion.prototype = {
 
   accessories: function (callback) {
-    var foundAccessories = []
-    var count = this.sensors.length
-    for (var index = 0; index < count; index++) {
-      var accessory = new MotionAccessory(this.sensors[index])
+    const foundAccessories = []
+    const count = this.sensors.length
+    for (let index = 0; index < count; index++) {
+      const accessory = new MotionAccessory(this.sensors[index])
       this.sensorAccessories[accessory.id] = accessory
       this.idArray.push(accessory.id)
       foundAccessories.push(accessory)
@@ -60,15 +60,17 @@ WebMotion.prototype = {
 
   _httpHandler: function (id, characteristic, value) {
     switch (characteristic) {
-      case 'motionDetected':
+      case 'motionDetected': {
         this.sensorAccessories[id].setState(value)
         this.log('%s | Updated %s to: %s', id, characteristic, value)
         if (parseInt(value) === 1 && this.autoReset) {
           this.autoResetFunction(id)
         }
         break
-      default:
+      }
+      default: {
         this.log.warn('%s | Unknown characteristic "%s" with value "%s"', id, characteristic, value)
+      }
     }
   },
 
